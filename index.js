@@ -11,36 +11,45 @@ app.listen(5000, function () {
   console.log('Example app listening on port 5000!')
 })
 app.post('/api/sendkeys', function (req, res) {
-  
-  var key = req.body.keys;
 
+  var key = req.body.keys;
+  //console.log(key);
+res.json({ success: 'message'});
   if (key=="z")
   {
     keyboard.press(robotjs.KEY_Z);
     robotjs.Timer.sleep (160);
+    keyboard.click(robotjs.KEY_D);
     keyboard.release(robotjs.KEY_Z);
+    // keyboard.click(robotjs.KEY_X);
   }
   else if (key=="_z")
   {
+
     keyboard.press(robotjs.KEY_Z);
     robotjs.Timer.sleep (25);
+    keyboard.click(robotjs.KEY_D);
     keyboard.release(robotjs.KEY_Z);
   }
   else if(key=="x")
   {
     keyboard.press(robotjs.KEY_X);
     robotjs.Timer.sleep (160);
+    keyboard.click(robotjs.KEY_D);
     keyboard.release(robotjs.KEY_X);
+    //keyboard.click(robotjs.KEY_X);
   }
   else if(key=="_x")
   {
     keyboard.press(robotjs.KEY_X);
     robotjs.Timer.sleep (25);
+    keyboard.click(robotjs.KEY_D);
     keyboard.release(robotjs.KEY_X);
   }
   else if(key=="f")
   {
     keyboard.click(robotjs.KEY_D);
+
   }
-  res.json({ success: 'message'});
+  //res.json({ success: 'message'});
 })
